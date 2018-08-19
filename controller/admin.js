@@ -38,4 +38,14 @@ router.get('/me',auth,(req,res)=> {
 });
 
 
+// deleting the token for logout
+router.delete('/me/token',auth,(req,res) => {
+    req.admin.removeToken(req.token).then(()=> {
+        res.status(200).send();
+    },()=> {
+        res.status(400).send();
+    });
+});
+
+
 module.exports = router;

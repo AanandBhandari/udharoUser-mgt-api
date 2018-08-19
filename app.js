@@ -20,7 +20,7 @@ mongoose.connect(db.mongouri, { useNewUrlParser: true }).then(()=> {
 
 // adding controller to the express
 app.use('/admin',admin);
-// app.use('/router',router);
+app.use('/admin/router',router);
 
 
 

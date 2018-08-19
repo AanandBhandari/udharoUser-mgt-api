@@ -113,6 +113,17 @@ userSchema.statics.findByToken = function (token) {
 
 
 
+// removing token from admin base
+userSchema.methods.removeToken = function (token) {
+    let admin = this;
+    return admin.update({
+        $pull: {
+            tokens:{token}
+        }
+    });  
+};
+
+
 let Admin = mongoose.model('Admin',userSchema);
 
 module.exports = {Admin};
